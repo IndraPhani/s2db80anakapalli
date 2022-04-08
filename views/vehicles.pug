@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}. My name is Anakapalli Phaneendra Babu
+  - let results=[{vehicle_type:"Sedan",brand:"Ford",price:"18000"},{vehicle_type:"Hatchback",brand:"Swift",price:"12000"},{vehicle_type:"Suv",brand:"Ram",price:"15000"}]
+  div(class="container-fluid")
+    div(class="row")
+      each vehicles, index in results
+        div(class="col-sm-2" onclick=`buy(${index+1})`) #{vehicles.vehicle_type} - #{vehicles.brand} - $#{vehicles.price}
+
+  script.
+    function buy(index){
+      alert(`You purchased item ${index}`);
+    }     
