@@ -14,7 +14,7 @@ exports.vehicle_list = async function (req, res) {
 exports.vehicle_detail = async function (req, res) {
     console.log("detail" + req.params.id)
     try {
-        result = await Books.findById(req.params.id)
+        result = await Vehicles.findById(req.params.id)
         res.send(result)
     } catch (error) {
         res.status(500)
@@ -52,9 +52,9 @@ exports.vehicle_update_put = async function (req, res) {
     try {
         let toUpdate = await Vehicle.findById(req.params.id)
         // Do updates of properties
-        if (req.body.Book_title) toUpdate.Book_title = req.body.Book_title;
-        if (req.body.genre) toUpdate.genre = req.body.genre;
-        if (req.body.cost) toUpdate.cost = req.body.cost;
+        if (req.body.vehicle_type) toUpdate.vehicle_type = req.body.vehicle_type;
+        if (req.body.brand) toUpdate.brand = req.body.brand;
+        if (req.body.price) toUpdate.price = req.body.price;
         let result = await toUpdate.save();
         console.log("Sucess " + result)
         res.send(result)
@@ -66,10 +66,10 @@ exports.vehicle_update_put = async function (req, res) {
 
 // VIEWS
 // Handle a show all view
-exports.book_view_all_Page = async function (req, res) {
+exports.vehicle_view_all_Page = async function (req, res) {
     try {
-        theBooks = await Book.find();
-        res.render('books', { title: 'Book Search Results', results: theBooks });
+        theVehicles = await Vehicle.find();
+        res.render('vehicles', { title: 'Vehicle Search Results', results: theVehicles });
     }
     catch (err) {
         res.status(500);
