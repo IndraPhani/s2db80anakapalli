@@ -14,7 +14,7 @@ exports.vehicle_list = async function (req, res) {
 exports.vehicle_detail = async function (req, res) {
     console.log("detail" + req.params.id)
     try {
-        result = await Vehicles.findById(req.params.id)
+        result = await Vehicle.findById(req.params.id)
         res.send(result)
     } catch (error) {
         res.status(500)
