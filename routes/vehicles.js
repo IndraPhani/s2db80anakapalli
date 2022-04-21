@@ -11,5 +11,11 @@ router.get('/', function(req, res, next) {
 
 /* GET vehicles */
 router.get('/', vehicle_controller.vehicle_view_all_Page );
+/* GET detail vehicle page */
+router.get('/detail', vehicle_controller.vehicle_view_one_Page);
+/* GET create vehicle page */
+router.get('/create', vehicle_controller.vehicle_create_Page);
+/* GET create vehicle page */
+router.get('/update', vehicle_controller.vehicle_update_Page);
 
 module.exports = router;
