@@ -2,6 +2,9 @@ extends layout
 block content
   h1= title
 
+  if (toShow == null)
+      h2 No instance to Update 
+  else 
   - let vehicleid = toShow._id
   - let vehicletype = toShow.vehicle_type
   - let vehiclebrand = toShow.brand

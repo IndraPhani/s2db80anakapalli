@@ -4,10 +4,11 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #dfb6d5;
 }
 
 .vehicleAttr {
-  background-color: aquamarine;
+  background-color: rgb(125, 213, 122);
   width: 120px;
+  font-family: Arial, Helvetica, sans-serif;
 } 
