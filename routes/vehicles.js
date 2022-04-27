@@ -8,7 +8,13 @@ router.get('/', function(req, res, next) {
   res.render('vehicle', { title: 'Search Results' });
 });
 */
-
+const secured = (req, res, next) => {
+  if (req.user) {
+    return next();
+  }
+  req.session.returnTo = req.originalUrl;
+  res.redirect("/login");
+}
 /* GET vehicles */
 router.get('/', vehicle_controller.vehicle_view_all_Page );
 /* GET detail vehicle page */
@@ -16,7 +22,7 @@ router.get('/detail', vehicle_controller.vehicle_view_one_Page);
 /* GET create vehicle page */
 router.get('/create', vehicle_controller.vehicle_create_Page);
 /* GET create vehicle page */
-router.get('/update', vehicle_controller.vehicle_update_Page);
+router.get('/update', secured, vehicle_controller.vehicle_update_Page);
 /* GET delete car page */
 router.get('/delete', vehicle_controller.vehicle_delete_Page);
 
