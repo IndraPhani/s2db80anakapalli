@@ -91,19 +91,19 @@ module.exports = app;
 async function recreateDB(){
  // Delete everything
  await Vehicle.deleteMany();
- let instance1 = new Vehicle({vehicle_type:"Sedan", brand:'Ford', price:18000});
+ let instance1 = new Vehicle({vehicle_type:"Sedan", brand:'Ford', price:22000});
  instance1.save( function(err,doc) {
  if(err) return console.error(err);
  console.log("First object saved")
  });
 
- let instance2 = new Vehicle({vehicle_type:"Hatchback", brand:'Swift', price:12000});
+ let instance2 = new Vehicle({vehicle_type:"Hatchback", brand:'Swift', price:26000});
  instance2.save( function(err,doc) {
  if(err) return console.error(err);
  console.log("Second object saved")
  });
 
- let instance3 = new Vehicle({vehicle_type:"Suv", brand:'Ram', price:15000});
+ let instance3 = new Vehicle({vehicle_type:"Suv", brand:'Ram', price:39000});
  instance3.save( function(err,doc) {
  if(err) return console.error(err);
  console.log("Third object saved")
